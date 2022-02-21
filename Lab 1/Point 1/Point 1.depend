@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1645484481 source:c:\users\acer\documents\github\labs-in-c--\lab 1\point 1\main.cpp
+	<iostream>
+	<math.h>
+	<random>
+	<chrono>
+	<fstream>
+
