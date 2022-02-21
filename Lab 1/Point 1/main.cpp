@@ -5,7 +5,8 @@
 #include <fstream>
 
 void onemove(int mas[])
-{   int next;
+{
+    int next;
     std::mt19937 rng(std::chrono::system_clock::now().time_since_epoch().count());
     std::uniform_int_distribution<int> dist (0, 3);
     next = dist(rng);
@@ -27,7 +28,8 @@ void onemove(int mas[])
     }
 }
 
-int experiment(int n) {
+int experiment(int n)
+{
     int counter;
     /* int i,j;
     int field[2*n+1][2*n+1];
@@ -47,13 +49,14 @@ int experiment(int n) {
         /*field[mas[0]][mas[1]]=1;*/
         counter++;
         /*for (i=0; i<2*n+1; i++)
-    {
+        {
         for (j=0; j<2*n; j++)
             std::cout<<field[i][j];
         std::cout<<field[i][2*n]<<std::endl;
-    }
+        }
         std::cout<<" "<<std::endl;
-    */}
+        */
+    }
     return counter;
 }
 
@@ -64,10 +67,15 @@ int main()
     std::cin>>n;
     std::ofstream out;
     out.open("res.txt");
-    for (j=1; j<=n; j++) {
-    repet_num = 200;
-    for (i=0; i<repet_num; i++) {result = result + experiment(j);}
-    out<<j<<" "<<result/repet_num<<std::endl;}
+    for (j=1; j<=n; j++)
+    {
+        repet_num = 200;
+        for (i=0; i<repet_num; i++)
+        {
+            result = result + experiment(j);
+        }
+        out<<j<<" "<<result/repet_num<<std::endl;
+    }
     out.close();
     return 0;
 }

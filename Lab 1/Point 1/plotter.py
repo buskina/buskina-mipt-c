@@ -4,11 +4,11 @@ from matplotlib.ticker import (AutoMinorLocator, MultipleLocator)
 
 
 with open("res.txt", "r") as f:
-    x1=[]
-    y1=[]
-    i=0
+    x1 = []
+    y1 = []
+    i = 0
     for line in f:
-        data=line.split(" ")
+        data = line.split(" ")
         x1.append(float(data[0]))
         y1.append(float(data[1]))
 
@@ -38,7 +38,7 @@ ax.grid(which='major', color='#CCCCCC', linestyle='--')
 ax.grid(which='minor', color='#CCCCCC', linestyle=':')
 
 # Подписи осей
-params = {'mathtext.default': 'regular' }          
+params = {'mathtext.default': 'regular'}
 plt.rcParams.update(params)
 plt.xlabel('n')
 plt.ylabel('t')
@@ -48,6 +48,6 @@ plt.title('График 1. Зависимость t(n)')
 
 h1 = np.arange(X_LIM_BOTTOM, X_LIM_UP, (X_LIM_UP-X_LIM_BOTTOM)/100)
 
-plt.plot(x1, y1, 'o', markersize = 3, color = '#FF0000')
+plt.plot(x1, y1, 'o', markersize=3, color='#FF0000')
 
 plt.show()
