@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1645474936 source:c:\users\acer\documents\github\labs-in-c--\problem 3\main.cpp
+	<iostream>
+	<math.h>
+
