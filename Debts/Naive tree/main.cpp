@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -95,18 +96,50 @@ void my_delete (ListNode *z) {
 }
 };
 
+void print(ListNode *root) {
+    if (root == nullptr)
+        return;
+    print(root->left);
+    cout << root->key << " ";
+    print(root->right);
+}
+
+void info(ListNode *n, string message, int h) {
+    for (int i=0; i<h; i++) {
+        cout << "    ";
+    }
+    cout << message << ": ";
+    if (n == nullptr) {
+        cout << "-\n";
+        return;
+    }
+    cout << n->key << "\n";
+    info(n->left, "left", h+1);
+    info(n->right, "right", h+1);
+}
+
 int main() {
     char cmd;
     int key;
     SimpleTree tree;
-    while (cin >> cmd >> key) {
+    while (cin >> cmd) {
         if (cmd == '+') {
+            cin >> key;
             tree.my_insert(new ListNode(key));
         } else if (cmd == '-') {
+            cin >> key;
             tree.my_delete(new ListNode(key));
         } else if (cmd == '?') {
+            cin >> key;
             cout << boolalpha << (my_search(tree.root, key) != nullptr) << "\n";
+        } else if (cmd == 'p') {
+            print(tree.root);
+            cout << "\n";
+        } else if (cmd == 'i') {
+            info(tree.root, "Root", 0);
+            cout << "\n";
+        } else if (cmd == 'e') {
+            return 0;
         }
     }
-    return 0;
 }
